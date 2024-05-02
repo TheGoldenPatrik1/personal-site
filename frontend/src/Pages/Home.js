@@ -1,12 +1,12 @@
 import { Container } from 'react-bootstrap';
 
-import AboutMe from './Components/AboutMe';
-import Achievements from './Components/Achievements';
-import Footer from './Components/Footer';
-import MainCarousel from './Components/MainCarousel';
-import NavigationBar from './Components/NavigationBar';
+import AboutMe from '../Components/AboutMe';
+import Achievements from '../Components/Achievements';
+import Footer from '../Components/Footer';
+import MainCarousel from '../Components/MainCarousel';
+import NavigationBar from '../Components/NavigationBar';
 
-import './App.css';
+import '../Styles/Home.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {

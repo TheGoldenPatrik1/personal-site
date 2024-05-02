@@ -3,7 +3,6 @@ import { Carousel, Card } from 'react-bootstrap';
 import CodingImage from '../Images/Coding.jpg';
 import UAImage from '../Images/University-of-Alabama.jpg';
 import UnumImage from '../Images/Unum-Columbia.webp';
-import '../Styles/Mobile.css';
 
 function MainCarousel() {
 
@@ -41,7 +40,7 @@ function MainCarousel() {
                 <Carousel.Item key={index}>
                     <img className="d-block w-100" src={item.imageSource} alt={item.imageAlt} />
                     <Carousel.Caption>
-                        <div className="hide-on-phone">
+                        <div className="d-none d-lg-block d-md-block">
                             <h3>{item.headerText}</h3>
                             <p>{item.paragraphText}</p>
                         </div>
@@ -49,7 +48,7 @@ function MainCarousel() {
               </Carousel.Item>
             ))}
         </Carousel>
-        <div className="phone-only">
+        <div className="dp-sm-block d-lg-none d-md-none">
             <br/>
             <Card>
                 <Card.Body>

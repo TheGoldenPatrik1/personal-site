@@ -1,0 +1,7 @@
+.achievements .card-subtitle {
+    font-style: italic;
+}
+
+.achievements .row {
+    margin-top: calc(var(--bs-gutter-x) * .5) !important;
+}

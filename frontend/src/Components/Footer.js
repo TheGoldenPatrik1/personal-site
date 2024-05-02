@@ -1,36 +1,38 @@
 import { Container, Row, Col } from 'react-bootstrap';
+import { MdEmail } from "react-icons/md";
+import { FaLinkedin, FaGithub } from "react-icons/fa";
 
 function Footer() {
+
+  const icons = [
+    {
+        icon: <FaLinkedin size={40}/>,
+        href: "https://www.linkedin.com/in/malachi-crain/"
+    },
+    {
+        icon: <FaGithub size={40}/>,
+        href: "https://github.com/TheGoldenPatrik1"
+    },
+    {
+        icon: <MdEmail size={40}/>,
+        href: "mailto:mcrain@crimson.ua.edu"
+    }
+  ];
+
   return (
     <footer className="bg-dark text-light py-3">
       <Container>
         <Row>
-          <Col sm={6} md={3}>
-            <h5>Company</h5>
-            <ul className="list-unstyled">
-              <li>About Us</li>
-              <li>Contact</li>
-              <li>Terms of Service</li>
-            </ul>
+          <Col sm={6} md={6} className="footer-col">
+            {
+                icons.map((item, index) => (
+                    <a key={index} href={item.href}>{item.icon}</a>
+                ))
+            }
+            
           </Col>
-          <Col sm={6} md={3}>
-            <h5>Resources</h5>
-            <ul className="list-unstyled">
-              <li>Blog</li>
-              <li>FAQ</li>
-            </ul>
-          </Col>
-          <Col sm={6} md={3}>
-            <h5>Connect</h5>
-            <ul className="list-unstyled">
-              <li>Facebook</li>
-              <li>Twitter</li>
-              <li>Instagram</li>
-            </ul>
-          </Col>
-          <Col sm={6} md={3}>
-            <h5>Subscribe</h5>
-            <p>Subscribe to our newsletter for updates</p>
+          <Col sm={6} md={6} className="footer-col">
+            <h5>© Copyright 2024 Malachi Crain</h5>
           </Col>
         </Row>
       </Container>
