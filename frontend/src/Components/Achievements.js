@@ -1,25 +1,20 @@
 import { Card, Row, Col, Button, Container, Collapse } from 'react-bootstrap';
 import { useState } from 'react';
 
+import { createDataReducer } from '../utilities';
+
+import ASOutstandingSophomoreImage from '../Images/AS-Outstanding-Sophomore.jpg';
 import BigIdeaImage from '../Images/BigIdeas.jpeg';
 import CSOutstandingJuniorImage from '../Images/CS-Outstanding-Junior.png';
 import DTCCImage from '../Images/DTCC.jpeg';
 import PurdueSLSAImage from '../Images/Purdue-SLSA.jpg';
 import UAInnovateImage from '../Images/UA-Innovate.jpeg';
+import VPLiturgyImage from '../Images/VP-of-Liturgy.jpg';
 
 import '../Styles/Achievements.css';
 
 function Achievements() {
     const [isClicked, setIsClicked] = useState(false);
-
-    const createDataReducer = (numItems) => {
-        return (acc, cur, index) => {
-            const groupIndex = Math.floor(index / numItems);
-            if (!acc[groupIndex]) acc[groupIndex] = [];
-            acc[groupIndex].push(cur);
-            return acc;
-        };
-    };
 
     const data = [
         {
@@ -47,10 +42,18 @@ function Achievements() {
             buttonHref: "https://www.linkedin.com/posts/malachi-crain_over-the-past-weekend-i-had-the-incredible-activity-7171611901406224384-jhgV"
         },
         {
+            imageSource: VPLiturgyImage,
+            title: "Vice President",
+            subTitle: "December 2023-Present",
+            text: "Appointed Vice President of Liturgy at BamaCatholic, overseeing weekly events with 400+ attendees.",
+            buttonText: "Full Story",
+            buttonHref: "https://stfrancisuofa.com"
+        },
+        {
             imageSource: DTCCImage,
             title: "DTCC",
             subTitle: "June-August 2023",
-            text: "Worked as an IT Intern at Depository Trust & Clearing Corporation, working with Java and PowerAutomate.",
+            text: "Worked as an IT Intern at the Depository Trust & Clearing Corporation, working with Java and PowerAutomate.",
             buttonText: "Full Story",
             buttonHref: "https://www.linkedin.com/posts/malachi-crain_its-hard-to-believe-that-its-already-the-activity-7095795278238113792-fcZs"
         },
@@ -61,14 +64,22 @@ function Achievements() {
             text: "Presented on Natural Language Processing at the Annual Science Literature and the Arts Conference in Purdue.",
             buttonText: "Full Story",
             buttonHref: "https://litsciarts.org/slsa2022/"
+        },
+        {
+            imageSource: ASOutstandingSophomoreImage,
+            title: "Outstanding Sophomore",
+            subTitle: "October 2022",
+            text: "Selected as a top five Sophomore in the College of Arts and Sciences based on exemplary character, leadership, & performance.",
+            buttonText: "Full Story",
+            buttonHref: "https://as.ua.edu/alumni-giving/leadership-board/outstanding-sophomore-and-junior-awards"
         }
     ];
 
     return (
         <Container className="achievements">
             {data.reduce(createDataReducer(3), []).map((item, index) => (
-                <div className="d-lg-flex d-md-none d-sm-flex">
-                    <Collapse key={index} in={index === 0 || isClicked}>
+                <div className="d-lg-flex d-md-none d-sm-flex" key={index}>
+                    <Collapse in={index === 0 || isClicked}>
                         <Row className="mt-4">
                             {
                                 item.map((item, index) => (
@@ -90,8 +101,8 @@ function Achievements() {
                 </div>
             ))}
             {data.reduce(createDataReducer(2), []).map((item, index) => (
-                <div className="d-none d-lg-none d-md-flex d-sm-none">
-                    <Collapse key={index} in={index === 0 || isClicked}>
+                <div className="d-none d-lg-none d-md-flex d-sm-none" key={index}>
+                    <Collapse in={index === 0 || isClicked}>
                         <Row className="mt-4">
                             {
                                 item.map((item, index) => (

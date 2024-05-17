@@ -5,3 +5,15 @@
 .achievements .row {
     margin-top: calc(var(--bs-gutter-x) * .5) !important;
 }
+
+@media (max-width: 700px) {
+
+    .achievements .row {
+        margin-bottom: calc(var(--bs-gutter-x) * -.5) !important;
+    }
+
+    .achievements .btn {
+        margin-top: calc(var(--bs-gutter-x) * .5);
+    }
+    
+}

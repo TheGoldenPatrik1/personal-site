@@ -1,5 +1,6 @@
 import { Container, Form, Button, Row, Col, Spinner, Alert } from 'react-bootstrap';
 import { useState } from 'react';
+import axios from 'axios';
 
 import Footer from '../Components/Footer';
 import NavigationBar from '../Components/NavigationBar';
@@ -23,26 +24,40 @@ function Contact() {
 
         setIsLoading(true);
         setSubmitted(true);
+
+        const lastSubmitted = localStorage.getItem('lastSubmitted');
+        if (lastSubmitted && Date.now() - lastSubmitted < 1000 * 60 * 5) {
+            setIsLoading(false);
+            setResult('last submission was too recent');
+            return;
+        }
         
-        const values = [];
-        for (let i = 0; i < form.length - 1; i++) values.push(form[i].value);
-        console.log(values);
-        
-        setTimeout(
-            () => {
+        const values = {
+            name: '',
+            email: '',
+            subject: '',
+            message: ''
+        };
+        for (let i = 0; i < form.length - 1; i++) values[Object.keys(values)[i]] = form[i].value;
+
+        axios.post('http://localhost:8080/api/contact', values).then(r => {
+            console.log(r);
+            if (r.status === 200) {
                 setIsLoading(false);
-
-                if (1) {
-                    setResult("failure");
-                    setSubmitted(false);
-
-                } else {
-                    setResult("success");
-                }
-                
-            },
-            2000
-        )
+                setResult('success');
+                localStorage.setItem('lastSubmitted', Date.now());
+            } else {
+                console.log(r);
+                setIsLoading(false);
+                setResult('unknown');
+                setSubmitted(false);
+            }     
+        }).catch(e => {
+            console.log(e);
+            setIsLoading(false);
+            setResult(e.response.data.error);
+            setSubmitted(false);
+        });
         
     };
 
@@ -124,12 +139,12 @@ function Contact() {
                             (!isLoading && result === "success") && "Submitted Successfully"
                         }
                         {
-                            (!isLoading && result === "failure") && "Try Again"
+                            (!isLoading && result !== "success" && result !== false) && "Try Again"
                         }
                     </Button>
                 </Form>
                 {
-                    result === "failure" && <span><br /><Alert variant="danger">An Error Occurred</Alert></span>
+                    !isLoading && result !== "success" && result !== false && <span><br /><Alert variant="danger">{`An Error Occurred: ${result}`}</Alert></span>
                 }
                 <br />
             </Container>

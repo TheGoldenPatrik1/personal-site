@@ -1,0 +1,23 @@
+.about-page .row {
+    align-items: flex-end;
+    display: flex;
+}
+
+.about-page img {
+    max-height: 280px;
+    object-fit: cover;
+}
+
+@media (max-width: 700px) {
+    .about-page img {
+        max-height: 160px;
+    }
+}
+
+.about-page .img-thumbnail {
+    transition: 0.75s;
+}
+
+.about-page .img-thumbnail:hover {
+    border: 3px solid rgb(33, 37, 41);
+}
