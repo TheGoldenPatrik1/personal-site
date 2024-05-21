@@ -1,0 +1,20 @@
+.about-me .card-title {
+    padding: 6px;
+}
+
+.about-me .card-body div {
+    margin-bottom: 10px;
+}
+
+.about-me img {
+    border-radius: var(--bs-border-radius);
+}
+
+.about-me .d-sm-block img {
+    margin-bottom: 10px;
+}
+
+.about-me .row {
+    display: flex;
+    align-items: center;
+}

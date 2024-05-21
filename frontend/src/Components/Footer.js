@@ -32,7 +32,7 @@ function Footer() {
             
           </Col>
           <Col sm={6} md={6} className="footer-col">
-            <h5>© Copyright 2024 Malachi Crain</h5>
+            <h5>{`© Copyright ${new Date().getFullYear()} Malachi Crain`}</h5>
           </Col>
         </Row>
       </Container>

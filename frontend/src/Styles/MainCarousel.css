@@ -1,0 +1,9 @@
+.main-carousel .card-title {
+    padding: 6px;
+    margin-bottom: 0px;
+}
+
+.main-carousel .carousel {
+    border-radius: var(--bs-border-radius);
+    padding: 5px;
+}

@@ -9,9 +9,9 @@ import NavigationBar from '../Components/NavigationBar';
 import '../Styles/Home.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 
-function App() {
+function Home() {
   return (
-    <div className="App">
+    <div className="home">
       <NavigationBar/>
       <Container className="mt-4">
         <h1>I'm Malachi Crain</h1>
@@ -28,4 +28,4 @@ function App() {
   );
 }
 
-export default App;
+export default Home;

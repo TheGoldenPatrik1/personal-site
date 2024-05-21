@@ -4,6 +4,8 @@ import CodingImage from '../Images/Coding.jpg';
 import UAImage from '../Images/University-of-Alabama.jpg';
 import UnumImage from '../Images/Unum-Columbia.webp';
 
+import '../Styles/MainCarousel.css';
+
 function MainCarousel() {
 
   const [index, setIndex] = useState(0);
@@ -29,13 +31,13 @@ function MainCarousel() {
         imageSource: UnumImage,
         imageAlt: "Unum Building in Columbia, SC",
         headerText: "Software Development Intern",
-        paragraphText: "At Unum in Columbia, SC during Summer 2024"
+        paragraphText: "At Unum in Columbia, SC for Summer 2024"
     }
   ];
 
   return (
-    <div>
-        <Carousel activeIndex={index} onSelect={handleSelect} inteval={3000} className="bg-dark" style={{padding: "5px"}}>
+    <div className="main-carousel">
+        <Carousel activeIndex={index} onSelect={handleSelect} inteval={3000} className="bg-dark">
             {data.map((item, index) => (
                 <Carousel.Item key={index}>
                     <img className="d-block w-100" src={item.imageSource} alt={item.imageAlt} />
@@ -51,8 +53,8 @@ function MainCarousel() {
         <div className="dp-sm-block d-lg-none d-md-none">
             <br/>
             <Card>
+                <Card.Title className="bg-dark text-light">{data[index].headerText}</Card.Title>
                 <Card.Body>
-                    <Card.Title className="bg-dark text-light">{data[index].headerText}</Card.Title>
                     <Card.Text>{data[index].paragraphText}</Card.Text>
                 </Card.Body>
             </Card>

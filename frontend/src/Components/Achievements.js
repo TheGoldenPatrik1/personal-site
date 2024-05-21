@@ -14,7 +14,7 @@ import VPLiturgyImage from '../Images/VP-of-Liturgy.jpg';
 import '../Styles/Achievements.css';
 
 function Achievements() {
-    const [isClicked, setIsClicked] = useState(false);
+    const [clickCount, setClickCount] = useState(false);
 
     const data = [
         {
@@ -75,11 +75,16 @@ function Achievements() {
         }
     ];
 
+    const screenWidth = Math.max(
+        document.documentElement.clientWidth,
+        window.innerWidth || 0
+    );
+
     return (
         <Container className="achievements">
             {data.reduce(createDataReducer(3), []).map((item, index) => (
                 <div className="d-lg-flex d-md-none d-sm-flex" key={index}>
-                    <Collapse in={index === 0 || isClicked}>
+                    <Collapse in={index === 0 || clickCount >= index}>
                         <Row className="mt-4">
                             {
                                 item.map((item, index) => (
@@ -102,7 +107,7 @@ function Achievements() {
             ))}
             {data.reduce(createDataReducer(2), []).map((item, index) => (
                 <div className="d-none d-lg-none d-md-flex d-sm-none" key={index}>
-                    <Collapse in={index === 0 || isClicked}>
+                    <Collapse in={index === 0 || clickCount >= index}>
                         <Row className="mt-4">
                             {
                                 item.map((item, index) => (
@@ -123,7 +128,17 @@ function Achievements() {
                     </Collapse>
                 </div>
             ))}
-            <Button variant="secondary" onClick={() => setIsClicked(!isClicked)}>{isClicked ? 'Show Less' : 'Show More'}</Button>
+            {
+                clickCount > 0 &&
+                <Button variant="secondary" onClick={() => setClickCount(clickCount - 1)}>Show Less</Button>
+            }
+            {
+                (
+                    clickCount === 0 ||
+                    ((screenWidth >= 768 && screenWidth < 992) ? (clickCount + 1) * 2 : (clickCount + 1) * 3) < data.length
+                ) &&
+                <Button variant="secondary" onClick={() => setClickCount(clickCount + 1)}>Show More</Button>
+            }
         </Container>
     );
 }

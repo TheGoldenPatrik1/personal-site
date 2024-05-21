@@ -61,7 +61,8 @@ function About() {
             <Container className="page-main about-page">
                 <br />
                 <h2>About This Site</h2>
-                <br />
+                <p>I built this site using <a href="https://en.wikipedia.org/wiki/JavaScript">JavaScript</a>. You can view the source code <a href="https://github.com/TheGoldenPatrik1/personal-site">here</a>.</p>
+                <h4>Libraries Used</h4>
                 {
                     Object.keys(layouts).map((parentItem, index) => (
                         <div key={index}>

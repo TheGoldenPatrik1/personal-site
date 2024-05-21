@@ -1,15 +1,25 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Container, Nav, Navbar, Modal, Button } from 'react-bootstrap';
 import { Document, Page, pdfjs } from 'react-pdf';
+
+import { useLocation } from 'react-router-dom';
+
+import { addCSS } from '../utilities';
 
 import SiteLogoImage from '../Images/Site-Logo.png';
 import ResumePDF from  '../Resources/Malachi-Crain-Resume.pdf';
 
 import '../Styles/DarkModal.css';
+import '../Styles/NavigationBar.css';
 
 pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 function NavigationBar() {
+  const location = useLocation().pathname;
+
+  useEffect(() => {
+    addCSS(`a[href='${location}'] { font-weight: bold; color: var(--bs-nav-link-hover-color); }`);
+  });
 
   const [show, setShow] = useState(false);
 
@@ -24,7 +34,7 @@ function NavigationBar() {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-  }
+  };
 
   return (
     <div>
@@ -50,7 +60,6 @@ function NavigationBar() {
                         </Document>
                     </div>
                 </Container>
-                
             </Modal.Body>
             <Modal.Footer>
                 <Button variant="secondary" onClick={handleClose}>
