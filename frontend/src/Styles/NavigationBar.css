@@ -1,14 +1,26 @@
 @media (prefers-reduced-motion: no-preference) {
     .navbar-brand:hover {
-        animation: App-logo-spin infinite 5s linear;
+        animation: app-logo-spin 0.75s linear 1, app-logo-spin-delayed 1.5s linear infinite 1.5s;
     }
 }
   
-@keyframes App-logo-spin {
+@keyframes app-logo-spin {
     from {
         transform: rotate(0deg);
     }
     to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes app-logo-spin-delayed {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(360deg);
+    }
+    100% {
         transform: rotate(360deg);
     }
 }
