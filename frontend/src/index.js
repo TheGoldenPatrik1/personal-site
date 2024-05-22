@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 
 import './Styles/index.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import About from './Pages/About';
 import Contact from './Pages/Contact';

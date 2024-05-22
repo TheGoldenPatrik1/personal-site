@@ -7,7 +7,6 @@ import MainCarousel from '../Components/MainCarousel';
 import NavigationBar from '../Components/NavigationBar';
 
 import '../Styles/Home.css';
-import "bootstrap/dist/css/bootstrap.min.css";
 
 function Home() {
   return (
