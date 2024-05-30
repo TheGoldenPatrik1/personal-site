@@ -38,7 +38,9 @@ const pingServer = async () => {
         });
 
         req.on('error', (error) => {
-            reject(error);
+            reject(
+                new Error(`Server pinged failed with error: ${error}`)
+            );
         });
 
         req.end();
