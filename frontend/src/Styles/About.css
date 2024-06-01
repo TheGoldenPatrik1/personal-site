@@ -3,8 +3,8 @@
 }
 
 .about-page .row {
-    align-items: flex-end;
     display: flex;
+    justify-content: center;
 }
 
 .about-page img {

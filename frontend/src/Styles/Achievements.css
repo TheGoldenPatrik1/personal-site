@@ -1,3 +1,11 @@
+.achievements .card {
+    transition: 0.3 ease;
+}
+
+.achievements .card:hover {
+    transform: scale(1.02);
+}
+
 .achievements .card-subtitle {
     font-style: italic;
 }

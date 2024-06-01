@@ -7,3 +7,26 @@
     border-radius: var(--bs-border-radius);
     padding: 5px;
 }
+
+@media (max-width: 700px) {
+    .main-carousel {
+        div.d-sm-block {
+            .card-title {
+                border-top-left-radius: 0px;
+                border-top-right-radius: 0px;
+            }
+            .card-title.h5 {
+                font-size: 1rem;
+            }
+            .card {
+                border-top: none;
+            }
+        }
+        .carousel {
+            border-bottom-left-radius: 0px;
+            border-bottom-right-radius: 0px;
+            margin-bottom: 2px;
+            padding: 3px;
+        }
+    }
+}

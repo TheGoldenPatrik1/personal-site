@@ -2,6 +2,8 @@ import { Container, Row, Col } from 'react-bootstrap';
 import { MdEmail } from "react-icons/md";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 
+import '../Styles/Footer.css';
+
 function Footer() {
 
   const icons = [
@@ -29,7 +31,6 @@ function Footer() {
                     <a key={index} href={item.href}>{item.icon}</a>
                 ))
             }
-            
           </Col>
           <Col sm={6} md={6} className="footer-col">
             <h5>{`© Copyright ${new Date().getFullYear()} Malachi Crain`}</h5>

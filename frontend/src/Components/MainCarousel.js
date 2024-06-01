@@ -42,7 +42,7 @@ function MainCarousel() {
                 <Carousel.Item key={index}>
                     <img className="d-block w-100" src={item.imageSource} alt={item.imageAlt} />
                     <Carousel.Caption>
-                        <div className="d-none d-lg-block d-md-block">
+                        <div className="d-none d-xl-block d-lg-block d-md-block">
                             <h3>{item.headerText}</h3>
                             <p>{item.paragraphText}</p>
                         </div>
@@ -50,8 +50,7 @@ function MainCarousel() {
               </Carousel.Item>
             ))}
         </Carousel>
-        <div className="dp-sm-block d-lg-none d-md-none">
-            <br/>
+        <div className="d-sm-block d-xl-none d-lg-none d-md-none">
             <Card>
                 <Card.Title className="bg-dark text-light">{data[index].headerText}</Card.Title>
                 <Card.Body>
