@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import { Carousel, Card } from 'react-bootstrap';
+import { Carousel } from 'react-bootstrap';
+
 import CodingImage from '../Images/Coding.jpg';
+import FutureImage from '../Images/Future.png';
 import UAImage from '../Images/University-of-Alabama.jpg';
-import UnumImage from '../Images/Unum-Columbia.webp';
 
 import '../Styles/MainCarousel.css';
 
@@ -24,14 +25,14 @@ function MainCarousel() {
     {
         imageSource: UAImage,
         imageAlt: "View of the University of Alabama",
-        headerText: "Computer Science and Math Student",
+        headerText: "Computer Science & Math Student",
         paragraphText: "University of Alabama, May of 2025"
     },
     {
-        imageSource: UnumImage,
-        imageAlt: "Unum Building in Columbia, SC",
-        headerText: "Software Development Intern",
-        paragraphText: "At Unum in Columbia, SC for Summer 2024"
+        imageSource: FutureImage,
+        imageAlt: "Future",
+        headerText: "Aspiring Software Engineer",
+        paragraphText: "Looking for a Full-Time Role"
     }
   ];
 
@@ -40,24 +41,14 @@ function MainCarousel() {
         <Carousel activeIndex={index} onSelect={handleSelect} inteval={3000} className="bg-dark">
             {data.map((item, index) => (
                 <Carousel.Item key={index}>
-                    <img className="d-block w-100" src={item.imageSource} alt={item.imageAlt} />
+                    <img className="d-block w-100 carousel-image" src={item.imageSource} alt={item.imageAlt} />
                     <Carousel.Caption>
-                        <div className="d-none d-xl-block d-lg-block d-md-block">
-                            <h3>{item.headerText}</h3>
-                            <p>{item.paragraphText}</p>
-                        </div>
+                        <h3 className="carousel-text">{item.headerText}</h3>
+                        <p className="carousel-subtext">{item.paragraphText}</p>
                     </Carousel.Caption>
               </Carousel.Item>
             ))}
         </Carousel>
-        <div className="d-sm-block d-xl-none d-lg-none d-md-none">
-            <Card>
-                <Card.Title className="bg-dark text-light">{data[index].headerText}</Card.Title>
-                <Card.Body>
-                    <Card.Text>{data[index].paragraphText}</Card.Text>
-                </Card.Body>
-            </Card>
-        </div>
     </div>
   );
 }

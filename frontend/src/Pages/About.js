@@ -2,6 +2,7 @@ import { Container, Row, Col, Image, OverlayTrigger, Tooltip } from 'react-boots
 
 import Footer from '../Components/Footer';
 import NavigationBar from '../Components/NavigationBar';
+import Tile from '../Components/Tile';
 
 import { createDataReducer } from '../utilities';
 
@@ -17,6 +18,7 @@ import VercelLogo from '../Images/Vercel-Logo.png';
 
 import '../Styles/FullPage.css';
 import '../Styles/About.css'
+import { Fragment } from 'react';
 
 function About() {
     const data = {
@@ -82,11 +84,12 @@ function About() {
             <NavigationBar />
             <Container className="page-main about-page">
                 <br />
-                <h2>About This Site</h2>
-                <p>I built this site using <a href="https://en.wikipedia.org/wiki/JavaScript">JavaScript</a>. You can view the source code <a href="https://github.com/TheGoldenPatrik1/personal-site">here</a>.</p>
+                <Tile title="About This Site">
+                    <p>I built this site using <a href="https://en.wikipedia.org/wiki/JavaScript">JavaScript</a> and <a href="https://en.wikipedia.org/wiki/CSS">CSS</a>. You can view the source code <a href="https://github.com/TheGoldenPatrik1/personal-site">here</a>.</p>
+                </Tile>
+                <br />
                 {Object.keys(data).map((dataKey, index) => (
-                    <div key={index}>
-                        <h4>{dataKey} Used</h4>
+                    <Fragment key={index}><Tile title={`${dataKey} Used`}>
                         {Object.keys(layouts).map((parentItem, index) => (
                             <div key={index}>
                                 {data[dataKey].reduce(createDataReducer(parentItem), []).map((item, index) => (
@@ -114,7 +117,8 @@ function About() {
                                 ))}
                             </div>
                         ))}
-                    </div>
+                    </Tile>
+                    <br /></Fragment>
                 ))}
             </Container>
             <Footer />

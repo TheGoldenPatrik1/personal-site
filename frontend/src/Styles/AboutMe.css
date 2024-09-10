@@ -1,16 +1,9 @@
-.about-me .card-title {
-    padding: 6px;
-}
-
-.about-me .card-body div {
-    margin-bottom: 10px;
-}
-
-.about-me img {
+.about-me .about-me-image {
     border-radius: var(--bs-border-radius);
+    max-width: 100%;
 }
 
-.about-me .d-sm-block img {
+.about-me .d-sm-block .about-me-image {
     margin-bottom: 10px;
 }
 
@@ -18,3 +11,13 @@
     display: flex;
     align-items: center;
 }
+
+/* .about-me .description {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.about-me p {
+    margin-bottom: 0;
+} */

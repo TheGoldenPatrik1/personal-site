@@ -31,3 +31,22 @@
         transform: rotate(360deg);
     }
 }
+
+.resume-modal .modal-title {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.resume-modal .modal-header .btn-close {
+    margin: 0;
+}
+
+.resume-modal .modal-body,
+.resume-modal .modal-body .container {
+    padding: 0;
+}
+
+.resume-modal .react-pdf__Page__canvas {
+    height: 100% !important;
+    width: 100% !important;
+}

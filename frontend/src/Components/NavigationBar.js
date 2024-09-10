@@ -9,7 +9,6 @@ import { addCSS } from '../utilities';
 import SiteLogoImage from '../Images/Site-Logo.png';
 import ResumePDF from  '../Resources/Malachi-Crain-Resume.pdf';
 
-import '../Styles/DarkModal.css';
 import '../Styles/NavigationBar.css';
 
 pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
@@ -38,7 +37,7 @@ function NavigationBar() {
 
   return (
     <div>
-        <Modal show={show} onHide={handleClose} size="lg" centered className="modal-dark" data-bs-theme="dark">
+        <Modal show={show} onHide={handleClose} size="lg" centered className="resume-modal">
             <Modal.Header closeButton>
                 <Modal.Title>My Résumé</Modal.Title>
             </Modal.Header>

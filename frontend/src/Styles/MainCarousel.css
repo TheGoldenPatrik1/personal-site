@@ -5,28 +5,31 @@
 
 .main-carousel .carousel {
     border-radius: var(--bs-border-radius);
-    padding: 5px;
+    padding: 2px;
+}
+
+.main-carousel .carousel-item .carousel-image {
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 100%);
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 100%);
+}
+
+.main-carousel .carousel-caption {
+    text-shadow: 0 1px 0 black;
+}
+
+.main-carousel .carousel-caption .carousel-subtext {
+    font-size: 18px;
 }
 
 @media (max-width: 700px) {
     .main-carousel {
-        div.d-sm-block {
-            .card-title {
-                border-top-left-radius: 0px;
-                border-top-right-radius: 0px;
-            }
-            .card-title.h5 {
-                font-size: 1rem;
-            }
-            .card {
-                border-top: none;
-            }
+        .carousel-image {
+            height: calc(200px + 13vw);
+            object-fit: cover;
         }
-        .carousel {
-            border-bottom-left-radius: 0px;
-            border-bottom-right-radius: 0px;
-            margin-bottom: 2px;
-            padding: 3px;
+
+        .carousel-subtext {
+            margin-bottom: 0;
         }
     }
 }

@@ -17,7 +17,7 @@ function Footer() {
     },
     {
         icon: <MdEmail size={40}/>,
-        href: "mailto:mcrain@crimson.ua.edu"
+        href: "mailto:malachicrain@gmail.com"
     }
   ];
 

@@ -2,6 +2,7 @@
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    background-color: #F8F9FA;
 }
   
 .page-main {
@@ -12,4 +13,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.page .container {
+    max-width: 95%;
+}
+
+@media (max-width: 700px) {
+    .page .container {
+        max-width: 98%;
+    }
 }

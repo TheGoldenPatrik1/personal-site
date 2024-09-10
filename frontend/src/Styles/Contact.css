@@ -5,3 +5,7 @@ label {
 h2 {
     text-align: center;
 }
+
+textarea.form-control {
+    min-height: 25vh;
+}

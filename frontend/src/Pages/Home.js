@@ -5,23 +5,29 @@ import Achievements from '../Components/Achievements';
 import Footer from '../Components/Footer';
 import MainCarousel from '../Components/MainCarousel';
 import NavigationBar from '../Components/NavigationBar';
+import Tile from '../Components/Tile';
 
 import '../Styles/Home.css';
+import '../Styles/FullPage.css';
 
 function Home() {
   return (
-    <div className="home">
+    <div className="home page">
       <NavigationBar/>
       <Container className="mt-4">
-        <h1>I'm Malachi Crain</h1>
-        <MainCarousel/>
-        <br/>
-        <AboutMe/>
-        <br/>
-        <h2>Latest Achievements</h2>
-        <Achievements/>
+            <Tile title="I'm Malachi Crain">
+                <MainCarousel/>
+            </Tile>
+            <br />
+            <Tile title="About Me">
+                <AboutMe/>
+            </Tile>
+            <br />
+            <Tile title="Achievements" className="achievements-tile">
+                <Achievements/>
+            </Tile>
       </Container>
-      <br/>
+      <br />
       <Footer/>
     </div>
   );
