@@ -1,13 +1,14 @@
-import { Container, Row, Col, Image, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import { Fragment } from 'react';
+import { Row, Col, Image, OverlayTrigger, Tooltip } from 'react-bootstrap';
 
-import Footer from '../Components/Footer';
-import NavigationBar from '../Components/NavigationBar';
+import Page from '../Components/Page';
 import Tile from '../Components/Tile';
 
 import { createDataReducer } from '../utilities';
 
 import CronJobLogo from '../Images/Cron-Job-Logo.png';
 import ExpressJSLogo from '../Images/Express-JS-Logo.png'
+import GoogleAnalyticsLogo from '../Images/Google-Analytics-Logo.png';
 import NodeJSLogo from '../Images/Node-JS-Logo.png';
 import NodemailerLogo from '../Images/Nodemailer-Logo.png';
 import ReactBootstrapLogo from '../Images/React-Bootstrap-Logo.png';
@@ -16,9 +17,7 @@ import ReactIconsLogo from '../Images/React-Icons-Logo.png';
 import RenderLogo from '../Images/Render-Logo.png';
 import VercelLogo from '../Images/Vercel-Logo.png';
 
-import '../Styles/FullPage.css';
 import '../Styles/About.css'
-import { Fragment } from 'react';
 
 function About() {
     const data = {
@@ -69,6 +68,11 @@ function About() {
                 image: CronJobLogo,
                 href: "https://cron-job.org",
                 tooltip: "CronJob server pinging"
+            },
+            {
+                image: GoogleAnalyticsLogo,
+                href: "https://analytics.google.com",
+                tooltip: "Google Analytics tracking"
             }
         ]
     };
@@ -80,49 +84,45 @@ function About() {
     };
 
     return (
-        <div className="page">
-            <NavigationBar />
-            <Container className="page-main about-page">
-                <br />
-                <Tile title="About This Site">
-                    <p>I built this site using <a href="https://en.wikipedia.org/wiki/JavaScript">JavaScript</a> and <a href="https://en.wikipedia.org/wiki/CSS">CSS</a>. You can view the source code <a href="https://github.com/TheGoldenPatrik1/personal-site">here</a>.</p>
+        <Page className="about-page" pageName="About This Site">
+            <br />
+            <Tile title="About This Site">
+                <p>I built this site using <a href="https://en.wikipedia.org/wiki/JavaScript" target="_blank" rel="noreferrer">JavaScript</a> and <a href="https://en.wikipedia.org/wiki/CSS" target="_blank" rel="noreferrer">CSS</a>. You can view the source code <a href="https://github.com/TheGoldenPatrik1/personal-site" target="_blank" rel="noreferrer">here</a>.</p>
+            </Tile>
+            <br />
+            {Object.keys(data).map((dataKey, index) => (
+                <Fragment key={index}><Tile title={`${dataKey} Used`}>
+                    {Object.keys(layouts).map((parentItem, index) => (
+                        <div key={index}>
+                            {data[dataKey].reduce(createDataReducer(parentItem), []).map((item, index) => (
+                                <div className={layouts[parentItem]} key={index}>
+                                    <Row className="w-100">
+                                        {
+                                            item.map((item, index) => (
+                                                <OverlayTrigger
+                                                    key={index}
+                                                    placement='bottom'
+                                                    overlay={
+                                                        <Tooltip id={`tooltip-${index}`}>{item.tooltip}</Tooltip>
+                                                    }
+                                                >
+                                                    <Col key={index} xs={6} sm={4} md={4} lg={4} xl={2} className="mb-3">
+                                                        <a href={item.href} target="_blank" rel="noreferrer">
+                                                            <Image src={item.image} thumbnail />
+                                                        </a>
+                                                    </Col>
+                                                </OverlayTrigger>
+                                            ))
+                                        }
+                                    </Row>
+                                </div>
+                            ))}
+                        </div>
+                    ))}
                 </Tile>
-                <br />
-                {Object.keys(data).map((dataKey, index) => (
-                    <Fragment key={index}><Tile title={`${dataKey} Used`}>
-                        {Object.keys(layouts).map((parentItem, index) => (
-                            <div key={index}>
-                                {data[dataKey].reduce(createDataReducer(parentItem), []).map((item, index) => (
-                                    <div className={layouts[parentItem]} key={index}>
-                                        <Row className="w-100">
-                                            {
-                                                item.map((item, index) => (
-                                                    <OverlayTrigger
-                                                        key={index}
-                                                        placement='bottom'
-                                                        overlay={
-                                                            <Tooltip id={`tooltip-${index}`}>{item.tooltip}</Tooltip>
-                                                        }
-                                                    >
-                                                        <Col key={index} xs={6} sm={4} md={4} lg={4} xl={2} className="mb-3">
-                                                            <a href={item.href}>
-                                                                <Image src={item.image} thumbnail />
-                                                            </a>
-                                                        </Col>
-                                                    </OverlayTrigger>
-                                                ))
-                                            }
-                                        </Row>
-                                    </div>
-                                ))}
-                            </div>
-                        ))}
-                    </Tile>
-                    <br /></Fragment>
-                ))}
-            </Container>
-            <Footer />
-        </div>
+                <br /></Fragment>
+            ))}
+        </Page>
     )
 }
 

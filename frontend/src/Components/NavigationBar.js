@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Container, Nav, Navbar, Modal, Button } from 'react-bootstrap';
 import { Document, Page, pdfjs } from 'react-pdf';
+import ReactGA from 'react-ga4';
 
 import { useLocation } from 'react-router-dom';
 
@@ -20,12 +21,30 @@ function NavigationBar() {
     addCSS(`a[href='${location}'] { font-weight: bold; color: var(--bs-nav-link-hover-color); }`);
   });
 
+  const handleClick = (name) => {
+    return () => {
+        ReactGA.event({
+            category: "User Interaction",
+            action: "Clicked Header Link",
+            label: name
+        });
+    }
+  }
+
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleShow = () => {
+    handleClick("Resume")();
+    setShow(true);
+  }
 
   const downloadResume = () => {
+    ReactGA.event({
+        category: "User Interaction",
+        action: "Downloaded Resume",
+        label: "Resume"
+    });
     const link = document.createElement('a');
     link.href = ResumePDF;
     link.setAttribute('download', 'Malachi-Crain-Resume.pdf');
@@ -65,7 +84,7 @@ function NavigationBar() {
         {resumeModal}
         <Navbar expand="lg" bg="dark" variant="dark">
             <Container>
-                <Navbar.Brand href="/">
+                <Navbar.Brand href="/" onClick={handleClick('Site Logo')}>
                     <img src={SiteLogoImage} width={40} alt="MC" />
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -73,11 +92,11 @@ function NavigationBar() {
                 <Nav className="me-auto">
                     <Nav.Link onClick={handleShow}>Résumé</Nav.Link>
                     {navSeparator}
-                    <Nav.Link href="/achievements">Achievements</Nav.Link>
+                    <Nav.Link href="/achievements" onClick={handleClick('Achievements')}>Achievements</Nav.Link>
                     {navSeparator}
-                    <Nav.Link href="/contact">Contact</Nav.Link>
+                    <Nav.Link href="/contact" onClick={handleClick('Contact')}>Contact</Nav.Link>
                     {navSeparator}
-                    <Nav.Link href="/about">About This Site</Nav.Link>
+                    <Nav.Link href="/about" onClick={handleClick('About This Site')}>About This Site</Nav.Link>
                 </Nav>
                 </Navbar.Collapse>
             </Container>

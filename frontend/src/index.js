@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom/client';
 import {
   createBrowserRouter,
   RouterProvider,
-} from "react-router-dom";
-import ReactGA from "react-ga4";
+} from 'react-router-dom';
+import ReactGA from 'react-ga4';
 
 import './Styles/index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -35,7 +35,7 @@ const router = createBrowserRouter([
   }
 ]);
 
-ReactGA.initialize('G-6WY1PH5YMC');
+ReactGA.initialize('G-NSC69VV4RR');
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

@@ -1,5 +1,6 @@
 import { Card, Row, Col, Button } from 'react-bootstrap';
 import { bool } from 'prop-types';
+import ReactGA from 'react-ga4';
 
 import { createDataReducer } from '../utilities';
 
@@ -79,6 +80,18 @@ function AchievementsList({ partialDisplay = false }) {
         }
     ];
 
+    const handleClick = (hasHref, name) => {
+        if (hasHref) {
+            return () => {
+                ReactGA.event({
+                    category: "User Interaction",
+                    action: "Clicked Achievement",
+                    label: name
+                });
+            }
+        }
+    }
+
     let classes = "achievements";
 
     if (partialDisplay) {
@@ -94,7 +107,14 @@ function AchievementsList({ partialDisplay = false }) {
                         {
                             item.map((item, index) => (
                                 <Col key={index} sm={12} md={6} lg={4} className="mb-3">
-                                    <Card as={item.buttonHref && "a"} href={item.buttonHref} className="achievements-card">
+                                    <Card
+                                        as={item.buttonHref && "a"}
+                                        href={item.buttonHref}
+                                        className="achievements-card"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                        onClick={handleClick(item.buttonHref, item.title)}
+                                    >
                                         <Card.Img variant="top" src={item.imageSource} />
                                         <Card.Body>
                                             <Card.Title>{item.title}</Card.Title>
@@ -114,7 +134,14 @@ function AchievementsList({ partialDisplay = false }) {
                         {
                             item.map((item, index) => (
                                 <Col key={index} sm={12} md={6} lg={4} className="mb-3">
-                                    <Card as={item.buttonHref && "a"} href={item.buttonHref} className="achievements-card">
+                                    <Card
+                                        as={item.buttonHref && "a"}
+                                        href={item.buttonHref}
+                                        className="achievements-card"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                        onClick={handleClick(item.buttonHref, item.title)}
+                                    >
                                         <Card.Img variant="top" src={item.imageSource} />
                                         <Card.Body>
                                             <Card.Title>{item.title}</Card.Title>
@@ -129,7 +156,11 @@ function AchievementsList({ partialDisplay = false }) {
                 </div>
             ))}
             {
-                partialDisplay && <Button href="/achievements" className="achievements-button">View All</Button>
+                partialDisplay && <Button
+                    href="/achievements"
+                    className="achievements-button"
+                    onClick={handleClick(true, "View All")}
+                >View All</Button>
             }
         </div>
     );

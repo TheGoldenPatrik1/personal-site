@@ -1,20 +1,12 @@
-import { Container } from 'react-bootstrap';
-
-import Footer from '../Components/Footer';
-import NavigationBar from '../Components/NavigationBar';
+import Page from '../Components/Page';
 
 import '../Styles/ErrorPage.css';
-import '../Styles/FullPage.css';
 
 function ErrorPage() {
     return (
-        <div className="page error-page">
-            <NavigationBar />
-            <Container className="page-main">
-                <h2>404: Page Not Found</h2>
-            </Container>
-            <Footer />
-        </div>
+        <Page className="error-page" pageName="404 Page">
+            <h2>404: Page Not Found</h2>
+        </Page>
     )
 }
 

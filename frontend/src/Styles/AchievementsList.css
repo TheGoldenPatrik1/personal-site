@@ -1,10 +1,9 @@
 .achievements a.card {
-    transition: 0.3 ease;
+    transition: 0.75s;
 }
 
 .achievements a.card:hover {
-    transform: scale(1.02);
-    border-color: var(--bs-dark-rgb);
+    border: 3px solid rgb(33, 37, 41);
 }
 
 .achievements .card-subtitle {
