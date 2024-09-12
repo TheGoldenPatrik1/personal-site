@@ -6,7 +6,3 @@
   border-top-left-radius: var(--bs-border-radius);
   border-top-right-radius: var(--bs-border-radius);
 }
-
-.home .achievements-tile .tile-title {
-    margin-bottom: 10px;
-}

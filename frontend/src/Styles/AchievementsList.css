@@ -28,12 +28,11 @@
     
 }
 
-.achievements .btn {
-    margin-left: 4px;
-    margin-right: 4px;
-}
-
 .achievements .achievements-card {
     text-decoration: none;
     height: 100%;
+}
+
+.partial-achievements .row-2 {
+    display: none !important;
 }

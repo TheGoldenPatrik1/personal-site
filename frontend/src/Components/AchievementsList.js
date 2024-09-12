@@ -1,5 +1,5 @@
-import { Card, Row, Col, Button, Collapse } from 'react-bootstrap';
-import { useState } from 'react';
+import { Card, Row, Col, Button } from 'react-bootstrap';
+import { bool } from 'prop-types';
 
 import { createDataReducer } from '../utilities';
 
@@ -13,12 +13,10 @@ import UndergraduateResearchImage from '../Images/Undergraduate-Research.jpg';
 import UnumImage from '../Images/Unum.jpg';
 import VPLiturgyImage from '../Images/VP-of-Liturgy.jpg';
 
-import '../Styles/Achievements.css';
+import '../Styles/AchievementsList.css';
 
-function Achievements() {
-    const [clickCount, setClickCount] = useState(false);
-
-    const data = [
+function AchievementsList({ partialDisplay = false }) {
+    let data = [
         {
             imageSource: UndergraduateResearchImage,
             title: "Research Assistant",
@@ -81,70 +79,64 @@ function Achievements() {
         }
     ];
 
-    const screenWidth = Math.max(
-        document.documentElement.clientWidth,
-        window.innerWidth || 0
-    );
+    let classes = "achievements";
+
+    if (partialDisplay) {
+        data = data.slice(0, 3);
+        classes += " partial-achievements";
+    }
 
     return (
-        <div className="achievements">
+        <div className={classes}>
             {data.reduce(createDataReducer(3), []).map((item, index) => (
                 <div className="d-lg-flex d-md-none d-sm-flex" key={index}>
-                    <Collapse in={index === 0 || clickCount >= index}>
-                        <Row className="mt-4">
-                            {
-                                item.map((item, index) => (
-                                    <Col key={index} sm={12} md={6} lg={4} className="mb-3">
-                                        <Card as={item.buttonHref && "a"} href={item.buttonHref} className="achievements-card">
-                                            <Card.Img variant="top" src={item.imageSource} />
-                                            <Card.Body>
-                                                <Card.Title>{item.title}</Card.Title>
-                                                <Card.Subtitle>{item.subTitle}</Card.Subtitle>
-                                                <Card.Text>{item.text}</Card.Text>
-                                            </Card.Body>
-                                        </Card>
-                                    </Col>
-                                ))
-                            }
-                        </Row>
-                    </Collapse>
+                    <Row className="mt-4">
+                        {
+                            item.map((item, index) => (
+                                <Col key={index} sm={12} md={6} lg={4} className="mb-3">
+                                    <Card as={item.buttonHref && "a"} href={item.buttonHref} className="achievements-card">
+                                        <Card.Img variant="top" src={item.imageSource} />
+                                        <Card.Body>
+                                            <Card.Title>{item.title}</Card.Title>
+                                            <Card.Subtitle>{item.subTitle}</Card.Subtitle>
+                                            <Card.Text>{item.text}</Card.Text>
+                                        </Card.Body>
+                                    </Card>
+                                </Col>
+                            ))
+                        }
+                    </Row>
                 </div>
             ))}
             {data.reduce(createDataReducer(2), []).map((item, index) => (
-                <div className="d-none d-lg-none d-md-flex d-sm-none" key={index}>
-                    <Collapse in={index === 0 || clickCount >= index}>
-                        <Row className="mt-4">
-                            {
-                                item.map((item, index) => (
-                                    <Col key={index} sm={12} md={6} lg={4} className="mb-3">
-                                        <Card as={item.buttonHref && "a"} href={item.buttonHref} className="achievements-card">
-                                            <Card.Img variant="top" src={item.imageSource} />
-                                            <Card.Body>
-                                                <Card.Title>{item.title}</Card.Title>
-                                                <Card.Subtitle>{item.subTitle}</Card.Subtitle>
-                                                <Card.Text>{item.text}</Card.Text>
-                                            </Card.Body>
-                                        </Card>
-                                    </Col>
-                                ))
-                            }
-                        </Row>
-                    </Collapse>
+                <div className={`d-none d-lg-none d-md-flex d-sm-none row-${index + 1}`} key={index}>
+                    <Row className="mt-4">
+                        {
+                            item.map((item, index) => (
+                                <Col key={index} sm={12} md={6} lg={4} className="mb-3">
+                                    <Card as={item.buttonHref && "a"} href={item.buttonHref} className="achievements-card">
+                                        <Card.Img variant="top" src={item.imageSource} />
+                                        <Card.Body>
+                                            <Card.Title>{item.title}</Card.Title>
+                                            <Card.Subtitle>{item.subTitle}</Card.Subtitle>
+                                            <Card.Text>{item.text}</Card.Text>
+                                        </Card.Body>
+                                    </Card>
+                                </Col>
+                            ))
+                        }
+                    </Row>
                 </div>
             ))}
             {
-                clickCount > 0 &&
-                <Button variant="secondary" onClick={() => setClickCount(clickCount - 1)}>Show Less</Button>
-            }
-            {
-                (
-                    clickCount === 0 ||
-                    ((screenWidth >= 768 && screenWidth < 992) ? (clickCount + 1) * 2 : (clickCount + 1) * 3) < data.length
-                ) &&
-                <Button variant="secondary" onClick={() => setClickCount(clickCount + 1)}>Show More</Button>
+                partialDisplay && <Button href="/achievements" className="achievements-button">View All</Button>
             }
         </div>
     );
 }
 
-export default Achievements;
+AchievementsList.propTypes = {
+    partialDisplay: bool
+};
+
+export default AchievementsList;

@@ -4,11 +4,13 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import ReactGA from "react-ga4";
 
 import './Styles/index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import About from './Pages/About';
+import Achievements from './Pages/Achievements';
 import Contact from './Pages/Contact';
 import ErrorPage from './Pages/ErrorPage';
 import Home from './Pages/Home';
@@ -26,8 +28,14 @@ const router = createBrowserRouter([
   {
     path: "/about",
     element: <About />
+  },
+  {
+    path: "/achievements",
+    element: <Achievements />
   }
 ]);
+
+ReactGA.initialize('G-6WY1PH5YMC');
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

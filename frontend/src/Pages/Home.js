@@ -1,7 +1,7 @@
 import { Container } from 'react-bootstrap';
 
 import AboutMe from '../Components/AboutMe';
-import Achievements from '../Components/Achievements';
+import AchievementsList from '../Components/AchievementsList';
 import Footer from '../Components/Footer';
 import MainCarousel from '../Components/MainCarousel';
 import NavigationBar from '../Components/NavigationBar';
@@ -13,21 +13,21 @@ import '../Styles/FullPage.css';
 function Home() {
   return (
     <div className="home page">
-      <NavigationBar/>
+      <NavigationBar />
       <Container className="mt-4">
             <Tile title="I'm Malachi Crain">
-                <MainCarousel/>
+                <MainCarousel />
             </Tile>
             <br />
             <Tile title="About Me">
-                <AboutMe/>
+                <AboutMe />
             </Tile>
             <br />
-            <Tile title="Achievements" className="achievements-tile">
-                <Achievements/>
+            <Tile title="Latest Achievements" className="achievements-tile">
+                <AchievementsList partialDisplay />
             </Tile>
+            <br />
       </Container>
-      <br />
       <Footer/>
     </div>
   );

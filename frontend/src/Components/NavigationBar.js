@@ -35,40 +35,34 @@ function NavigationBar() {
     document.body.removeChild(link);
   };
 
+  const resumeModal = (
+    <Modal show={show} onHide={handleClose} size="lg" centered className="resume-modal">
+        <Modal.Header closeButton>
+            <Modal.Title>My Résumé</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+            <Container>
+                <Document file={ResumePDF}>
+                    <Page pageNumber={1} renderAnnotationLayer={false} renderTextLayer={false} />
+                </Document>
+            </Container>
+        </Modal.Body>
+        <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>
+                Close
+            </Button>
+            <Button variant="primary" onClick={downloadResume}>
+                Download
+            </Button>
+        </Modal.Footer>
+    </Modal>
+  );
+
+  const navSeparator = <span className="navbar-separator d-sm-none d-md-none d-lg-block">|</span>;
+
   return (
     <div>
-        <Modal show={show} onHide={handleClose} size="lg" centered className="resume-modal">
-            <Modal.Header closeButton>
-                <Modal.Title>My Résumé</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-                <Container>
-                    <div className="d-none d-md-none d-lg-block">
-                        <Document file={ResumePDF}>
-                            <Page pageNumber={1} renderAnnotationLayer={false} renderTextLayer={false} />
-                        </Document>
-                    </div>
-                    <div className="d-none d-md-block d-lg-none">
-                        <Document file={ResumePDF}>
-                            <Page pageNumber={1} renderAnnotationLayer={false} renderTextLayer={false} width={450} />
-                        </Document>
-                    </div>
-                    <div className="d-block d-md-none d-lg-none">
-                        <Document file={ResumePDF}>
-                            <Page pageNumber={1} renderAnnotationLayer={false} renderTextLayer={false} width={300} />
-                        </Document>
-                    </div>
-                </Container>
-            </Modal.Body>
-            <Modal.Footer>
-                <Button variant="secondary" onClick={handleClose}>
-                    Close
-                </Button>
-                <Button variant="primary" onClick={downloadResume}>
-                    Download
-                </Button>
-            </Modal.Footer>
-        </Modal>
+        {resumeModal}
         <Navbar expand="lg" bg="dark" variant="dark">
             <Container>
                 <Navbar.Brand href="/">
@@ -78,8 +72,12 @@ function NavigationBar() {
                 <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto">
                     <Nav.Link onClick={handleShow}>Résumé</Nav.Link>
+                    {navSeparator}
+                    <Nav.Link href="/achievements">Achievements</Nav.Link>
+                    {navSeparator}
                     <Nav.Link href="/contact">Contact</Nav.Link>
-                    <Nav.Link href="/about">About</Nav.Link>
+                    {navSeparator}
+                    <Nav.Link href="/about">About This Site</Nav.Link>
                 </Nav>
                 </Navbar.Collapse>
             </Container>
