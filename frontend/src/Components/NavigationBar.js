@@ -77,7 +77,7 @@ function NavigationBar() {
     </Modal>
   );
 
-  const navSeparator = <span className="navbar-separator d-sm-none d-md-none d-lg-block">|</span>;
+  const navSeparator = <span className="navbar-separator d-none d-lg-block">|</span>;
 
   return (
     <div>

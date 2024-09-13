@@ -35,7 +35,11 @@ const router = createBrowserRouter([
   }
 ]);
 
-ReactGA.initialize('G-NSC69VV4RR');
+ReactGA.initialize('G-NSC69VV4RR', {
+    gaOptions: {
+        anonymizeIp: true
+    }
+});
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
