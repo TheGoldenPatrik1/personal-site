@@ -1,3 +1,7 @@
+import { useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
+import ReactGA from 'react-ga4';
+
 import AboutMe from '../Components/AboutMe';
 import AchievementsList from '../Components/AchievementsList';
 import MainCarousel from '../Components/MainCarousel';
@@ -7,6 +11,19 @@ import Tile from '../Components/Tile';
 import '../Styles/Home.css';
 
 function Home() {
+  const [searchParams] = useSearchParams();
+  const entryPoint = searchParams.get('entryPoint');
+
+  useEffect(() => {
+    if (entryPoint) {
+        ReactGA.event({
+            category: "User Interaction",
+            action: `Entered from ${entryPoint}`,
+            label: "Entry Point"
+        });
+    }
+  }, [entryPoint, searchParams]);
+
   return (
     <Page className="home" pageName="Home">
         <br />
