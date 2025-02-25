@@ -39,7 +39,7 @@ function Contact() {
         };
         for (let i = 0; i < form.length - 1; i++) values[Object.keys(values)[i]] = form[i].value;
 
-        axios.post(`https://personal-site-mlzp.onrender.com/api/contact`, values).then(r => {
+        axios.post('https://personal-site-mlzp.onrender.com/api/contact', values).then(r => {
             console.log(r);
             if (r.status === 200) {
                 setIsLoading(false);

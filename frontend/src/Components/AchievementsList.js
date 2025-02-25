@@ -54,8 +54,8 @@ function AchievementsList({ partialDisplay = false }) {
         {
             imageSource: VPLiturgyImage,
             title: "Vice President",
-            subTitle: "December 2023-Present",
-            text: "Appointed Vice President of Liturgy at BamaCatholic, overseeing weekly events with 400+ attendees."
+            subTitle: "December 2023-December 2024",
+            text: "Served as Vice President of Liturgy at BamaCatholic, overseeing weekly events with 400+ attendees."
         },
         {
             imageSource: DTCCImage,

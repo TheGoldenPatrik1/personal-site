@@ -26,7 +26,7 @@ function MainCarousel() {
         imageSource: UAImage,
         imageAlt: "View of the University of Alabama",
         headerText: "Computer Science & Math Student",
-        paragraphText: "University of Alabama, May of 2025"
+        paragraphText: "University of Alabama, May of 2026"
     },
     {
         imageSource: FutureImage,

@@ -5,10 +5,10 @@ import '../Styles/AboutMe.css';
 
 function AboutMe() {
     const textDescriptions = {
-        "Overview": ["I taught myself coding about eight years ago and instantly fell in love. I am now a Senior at the University of Alabama, double majoring in Computer Science and Math. As I prepare to graduate in May of 2025, I'm looking for a role where I can bring to bear my passion for computer programming and software development."],
+        "Overview": ["I taught myself coding about eight years ago and instantly fell in love. I am now a Senior at the University of Alabama, double majoring in Computer Science and Math. As I prepare to graduate with my Master's in May of 2026, I'm looking for a role where I can bring to bear my passion for computer programming and software development."],
         "Experience": [
             "I've had several opportunities to gain experience in the field of CS. Over the past couple years, I've worked on two different University research projects, both involving Machine Learning. Two summers ago, I worked at DTCC as an IT Intern, which was a wonderful chance to apply the skills I had learned in coursework and personal projects.",
-            "This past summer, I was a Software Engineering Intern at Unum, which provided valuable experience and solidified my desire to work full-time in the field of software engineering. As I conclude my time at college, I'm excited to see where my career will take me next!"
+            "This past summer, I was a Software Engineering Intern at Unum, which provided valuable experience and solidified my desire to work full-time in the field of software engineering. This summer, I'm planning on diversifying my experience as a Software Engineering Intern at PowerGEM. As I conclude my time at college, I'm excited to see where my career will take me next!"
         ]
     };
 

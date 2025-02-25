@@ -22,7 +22,7 @@ function Home() {
             label: "Entry Point"
         });
     }
-  }, [entryPoint, searchParams]);
+  }, [entryPoint]);
 
   return (
     <Page className="home" pageName="Home">

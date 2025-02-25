@@ -19,7 +19,7 @@ function Page({ pageName, className, children }) {
 
     let classes = "page";
     if (className) {
-        classes += " " + className;
+        classes += ` ${className}`;
     }
 
     return (
