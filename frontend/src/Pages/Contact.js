@@ -1,64 +1,66 @@
-import { Form, Button, Row, Col, Spinner, Alert } from 'react-bootstrap';
-import { useState } from 'react';
-import axios from 'axios';
+import { Form, Button, Row, Col, Spinner, Alert } from 'react-bootstrap'
+import { useState } from 'react'
+import axios from 'axios'
 
-import Page from '../Components/Page';
-import Tile from '../Components/Tile';
+import Page from '../Components/Page'
+import Tile from '../Components/Tile'
 
-import '../Styles/Contact.css';
+import '../Styles/Contact.css'
 
 function Contact() {
+    const [validated, setValidated] = useState(false)
+    const [submitted, setSubmitted] = useState(false)
+    const [isLoading, setIsLoading] = useState(false)
+    const [result, setResult] = useState(false)
 
-    const [validated, setValidated] = useState(false);
-    const [submitted, setSubmitted] = useState(false);
-    const [isLoading, setIsLoading] = useState(false);
-    const [result, setResult] = useState(false);
-    
     const handleSubmit = (e) => {
-        const form = e.currentTarget;
-        e.preventDefault();
-        e.stopPropagation();
-        setValidated(true);
-        if (form.checkValidity() === false) return;
+        const form = e.currentTarget
+        e.preventDefault()
+        e.stopPropagation()
+        setValidated(true)
+        if (form.checkValidity() === false) return
 
-        setIsLoading(true);
-        setSubmitted(true);
+        setIsLoading(true)
+        setSubmitted(true)
 
-        const lastSubmitted = localStorage.getItem('lastSubmitted');
+        const lastSubmitted = localStorage.getItem('lastSubmitted')
         if (lastSubmitted && Date.now() - lastSubmitted < 1000 * 60 * 5) {
-            setIsLoading(false);
-            setResult('last submission was too recent');
-            return;
+            setIsLoading(false)
+            setResult('last submission was too recent')
+            return
         }
-        
+
         const values = {
             name: '',
             email: '',
             subject: '',
             message: ''
-        };
-        for (let i = 0; i < form.length - 1; i++) values[Object.keys(values)[i]] = form[i].value;
+        }
+        for (let i = 0; i < form.length - 1; i++)
+            values[Object.keys(values)[i]] = form[i].value
 
-        axios.post('https://personal-site-mlzp.onrender.com/api/contact', values).then(r => {
-            console.log(r);
-            if (r.status === 200) {
-                setIsLoading(false);
-                setResult('success');
-                localStorage.setItem('lastSubmitted', Date.now());
-            } else {
-                console.log(r);
-                setIsLoading(false);
-                setResult('unknown');
-                setSubmitted(false);
-            }     
-        }).catch(e => {
-            console.log(e);
-            setIsLoading(false);
-            setResult(e.response.data.error || 'unkown');
-            setSubmitted(false);
-        });
-        
-    };
+        axios
+            .post('https://personal-site-mlzp.onrender.com/api/contact', values)
+            .then((r) => {
+                console.log(r)
+                if (r.status === 200) {
+                    setIsLoading(false)
+                    setResult('success')
+                    localStorage.setItem('lastSubmitted', Date.now())
+                } else {
+                    console.log(r)
+                    setIsLoading(false)
+                    setResult('unknown')
+                    setSubmitted(false)
+                }
+            })
+            .catch((e) => {
+                console.log(e)
+                setIsLoading(false)
+                setResult(e.response.data.error || 'unkown')
+                setSubmitted(false)
+            })
+    }
 
     return (
         <Page pageName="Contact">
@@ -78,7 +80,9 @@ function Contact() {
                                 />
                             </Form.Group>
                         </Col>
-                        <span className="dp-sm-block d-lg-none d-md-none"><br /></span>
+                        <span className="dp-sm-block d-lg-none d-md-none">
+                            <br />
+                        </span>
                         <Col md={6} sm={12}>
                             <Form.Group controlId="formEmail">
                                 <Form.Label>Email Address</Form.Label>
@@ -114,10 +118,13 @@ function Contact() {
                         />
                     </Form.Group>
                     <br />
-                    <Button variant="primary" type="submit" disabled={submitted}>
-                        {
-                            isLoading &&
-                            (<span>
+                    <Button
+                        variant="primary"
+                        type="submit"
+                        disabled={submitted}
+                    >
+                        {isLoading && (
+                            <span>
                                 <Spinner
                                     as="span"
                                     animation="grow"
@@ -126,26 +133,28 @@ function Contact() {
                                     aria-hidden="true"
                                 />
                                 Submitting...
-                            </span>)
-                        }
-                        {
-                            (!isLoading && !result) && "Submit"
-                        }
-                        {
-                            (!isLoading && result === "success") && "Submitted Successfully"
-                        }
-                        {
-                            (!isLoading && result !== "success" && result !== false) && "Try Again"
-                        }
+                            </span>
+                        )}
+                        {!isLoading && !result && 'Submit'}
+                        {!isLoading &&
+                            result === 'success' &&
+                            'Submitted Successfully'}
+                        {!isLoading &&
+                            result !== 'success' &&
+                            result !== false &&
+                            'Try Again'}
                     </Button>
                 </Form>
-                {
-                    !isLoading && result !== "success" && result !== false && <span><br /><Alert variant="danger">{`An Error Occurred: ${result}`}</Alert></span>
-                }
+                {!isLoading && result !== 'success' && result !== false && (
+                    <span>
+                        <br />
+                        <Alert variant="danger">{`An Error Occurred: ${result}`}</Alert>
+                    </span>
+                )}
             </Tile>
             <br />
         </Page>
     )
 }
 
-export default Contact;
+export default Contact

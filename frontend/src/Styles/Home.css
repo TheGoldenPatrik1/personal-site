@@ -1,8 +1,8 @@
 .home {
-  text-align: center;
+    text-align: center;
 }
 
 .home .card-title {
-  border-top-left-radius: var(--bs-border-radius);
-  border-top-right-radius: var(--bs-border-radius);
+    border-top-left-radius: var(--bs-border-radius);
+    border-top-right-radius: var(--bs-border-radius);
 }

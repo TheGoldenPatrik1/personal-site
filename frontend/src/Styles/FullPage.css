@@ -2,9 +2,9 @@
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    background-color: #F8F9FA;
+    background-color: #f8f9fa;
 }
-  
+
 .page-main {
     flex: 1;
 }

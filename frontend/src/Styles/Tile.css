@@ -3,14 +3,14 @@
     border-radius: var(--bs-border-radius);
     padding: var(--bs-gutter-x);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
+}
 
 @media (max-width: 700px) {
     .tile {
         padding: 12px;
     }
 }
-  
+
 .tile-title {
     font-size: 1.75rem;
     margin-bottom: 1rem;

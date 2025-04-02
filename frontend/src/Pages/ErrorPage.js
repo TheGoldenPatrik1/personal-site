@@ -1,6 +1,6 @@
-import Page from '../Components/Page';
+import Page from '../Components/Page'
 
-import '../Styles/ErrorPage.css';
+import '../Styles/ErrorPage.css'
 
 function ErrorPage() {
     return (
@@ -10,4 +10,4 @@ function ErrorPage() {
     )
 }
 
-export default ErrorPage;
+export default ErrorPage

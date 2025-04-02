@@ -1,6 +1,6 @@
-import AchievementsList from '../Components/AchievementsList';
-import Page from '../Components/Page';
-import Tile from '../Components/Tile';
+import AchievementsList from '../Components/AchievementsList'
+import Page from '../Components/Page'
+import Tile from '../Components/Tile'
 
 function Achievements() {
     return (
@@ -14,4 +14,4 @@ function Achievements() {
     )
 }
 
-export default Achievements;
+export default Achievements

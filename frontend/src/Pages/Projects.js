@@ -1,6 +1,6 @@
-import ProjectsList from '../Components/ProjectsList';
-import Page from '../Components/Page';
-import Tile from '../Components/Tile';
+import ProjectsList from '../Components/ProjectsList'
+import Page from '../Components/Page'
+import Tile from '../Components/Tile'
 
 function Projects() {
     return (
@@ -14,4 +14,4 @@ function Projects() {
     )
 }
 
-export default Projects;
+export default Projects

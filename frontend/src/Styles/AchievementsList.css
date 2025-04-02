@@ -16,19 +16,17 @@
 }
 
 .achievements .row {
-    margin-top: calc(var(--bs-gutter-x) * .5) !important;
+    margin-top: calc(var(--bs-gutter-x) * 0.5) !important;
 }
 
 @media (max-width: 700px) {
-
     .achievements .row {
-        margin-bottom: calc(var(--bs-gutter-x) * -.5) !important;
+        margin-bottom: calc(var(--bs-gutter-x) * -0.5) !important;
     }
 
     .achievements .btn {
-        margin-top: calc(var(--bs-gutter-x) * .5);
+        margin-top: calc(var(--bs-gutter-x) * 0.5);
     }
-    
 }
 
 .achievements .achievements-card {

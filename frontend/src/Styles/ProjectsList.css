@@ -16,19 +16,17 @@
 }
 
 .projects .row {
-    margin-top: calc(var(--bs-gutter-x) * .5) !important;
+    margin-top: calc(var(--bs-gutter-x) * 0.5) !important;
 }
 
 @media (max-width: 700px) {
-
     .projects .row {
-        margin-bottom: calc(var(--bs-gutter-x) * -.5) !important;
+        margin-bottom: calc(var(--bs-gutter-x) * -0.5) !important;
     }
 
     .projects .btn {
-        margin-top: calc(var(--bs-gutter-x) * .5);
+        margin-top: calc(var(--bs-gutter-x) * 0.5);
     }
-    
 }
 
 .projects .projects-card {
