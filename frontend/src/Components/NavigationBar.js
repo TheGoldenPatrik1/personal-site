@@ -92,6 +92,8 @@ function NavigationBar() {
                 <Nav className="me-auto">
                     <Nav.Link onClick={handleShow}>Résumé</Nav.Link>
                     {navSeparator}
+                    <Nav.Link href="/projects" onClick={handleClick('Projects')}>Projects</Nav.Link>
+                    {navSeparator}
                     <Nav.Link href="/achievements" onClick={handleClick('Achievements')}>Achievements</Nav.Link>
                     {navSeparator}
                     <Nav.Link href="/contact" onClick={handleClick('Contact')}>Contact</Nav.Link>
