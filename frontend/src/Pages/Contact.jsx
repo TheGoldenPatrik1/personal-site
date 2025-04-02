@@ -1,6 +1,5 @@
-import { Form, Button, Row, Col, Spinner, Alert } from 'react-bootstrap'
 import { useState } from 'react'
-import axios from 'axios'
+import { Alert, Button, Col, Form, Row, Spinner } from 'react-bootstrap'
 
 import Page from '../Components/Page'
 import Tile from '../Components/Tile'
@@ -39,16 +38,23 @@ function Contact() {
         for (let i = 0; i < form.length - 1; i++)
             values[Object.keys(values)[i]] = form[i].value
 
-        axios
-            .post('https://personal-site-mlzp.onrender.com/api/contact', values)
-            .then((r) => {
+        fetch('https://personal-site-mlzp.onrender.com/api/contact', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(values)
+        })
+            .then(async (r) => {
                 console.log(r)
-                if (r.status === 200) {
+                const data = await r.json()
+
+                if (r.ok) {
                     setIsLoading(false)
                     setResult('success')
                     localStorage.setItem('lastSubmitted', Date.now())
                 } else {
-                    console.log(r)
+                    console.log(data)
                     setIsLoading(false)
                     setResult('unknown')
                     setSubmitted(false)
@@ -57,7 +63,7 @@ function Contact() {
             .catch((e) => {
                 console.log(e)
                 setIsLoading(false)
-                setResult(e.response.data.error || 'unkown')
+                setResult(e.message || 'unknown')
                 setSubmitted(false)
             })
     }
