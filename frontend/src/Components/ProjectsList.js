@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react'
 import { bool } from 'prop-types'
+import { useEffect, useState } from 'react'
 import { Button, Card, Col, Row } from 'react-bootstrap'
 import ReactGA from 'react-ga4'
 
@@ -40,13 +40,12 @@ function ProjectList({ partialDisplay = false }) {
         const cachedData = sessionStorage.getItem(url)
         if (cachedData) {
             setData(JSON.parse(cachedData))
-            console.log(JSON.parse(cachedData))
             return
         }
         fetch(url)
             .then((response) => response.json())
             .then((data) => {
-                data = data
+                const parsedData = data
                     .filter((d) => !d.fork)
                     .sort(
                         (a, b) =>
@@ -54,8 +53,8 @@ function ProjectList({ partialDisplay = false }) {
                             b.forks_count - a.forks_count ||
                             new Date(b.pushed_at) - new Date(a.pushed_at)
                     )
-                sessionStorage.setItem(url, JSON.stringify(data))
-                setData(data)
+                sessionStorage.setItem(url, JSON.stringify(parsedData))
+                setData(parsedData)
             })
             .catch((error) => {
                 console.error('Error fetching projects:', error)

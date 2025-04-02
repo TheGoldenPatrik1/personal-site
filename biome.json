@@ -1,0 +1,8 @@
+{
+    "linter": {
+        "rules": {
+            "suspicious": { "noArrayIndexKey": "off" }
+        }
+    },
+    "formatter": { "enabled": false }
+}
