@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react'
-import { Container, Nav, Navbar, Modal, Button } from 'react-bootstrap'
-import { Document, Page, pdfjs } from 'react-pdf'
+import { useEffect, useState } from 'react'
+import { Button, Container, Modal, Nav, Navbar } from 'react-bootstrap'
 import ReactGA from 'react-ga4'
+import { Document, Page, pdfjs } from 'react-pdf'
 
 import { useLocation } from 'react-router-dom'
 
@@ -12,7 +12,7 @@ import ResumePDF from '../Resources/Malachi-Crain-Resume.pdf'
 
 import '../Styles/NavigationBar.css'
 
-pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`
+pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.mjs`
 
 function NavigationBar() {
     const location = useLocation().pathname
