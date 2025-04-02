@@ -1,40 +1,41 @@
-.projects-page {
+.projects-page,
+.achievements-page {
     text-align: center;
 }
 
-.projects a.card {
+.item-list a.card {
     transition: 0.75s;
 }
 
-.projects a.card:hover {
+.item-list a.card:hover {
     border: 3px solid rgb(33, 37, 41);
 }
 
-.projects .card-subtitle {
+.item-list .card-subtitle {
     font-style: italic;
     margin-bottom: 6px;
 }
 
-.projects .row {
+.item-list .row {
     margin-top: calc(var(--bs-gutter-x) * 0.5) !important;
 }
 
 @media (max-width: 700px) {
-    .projects .row {
+    .item-list .row {
         margin-bottom: calc(var(--bs-gutter-x) * -0.5) !important;
     }
 
-    .projects .btn {
+    .item-list .btn {
         margin-top: calc(var(--bs-gutter-x) * 0.5);
     }
 }
 
-.projects .projects-card {
+.item-list .item-list-card {
     text-decoration: none;
     height: 100%;
 }
 
-.partial-projects .row-2 {
+.partial-item-list .row-2 {
     display: none !important;
 }
 

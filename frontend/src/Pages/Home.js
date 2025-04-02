@@ -1,12 +1,12 @@
 import { useEffect } from 'react'
-import { useSearchParams } from 'react-router-dom'
 import ReactGA from 'react-ga4'
+import { useSearchParams } from 'react-router-dom'
 
 import AboutMe from '../Components/AboutMe'
-import ProjectList from '../Components/ProjectsList'
 import AchievementsList from '../Components/AchievementsList'
 import MainCarousel from '../Components/MainCarousel'
 import Page from '../Components/Page'
+import ProjectList from '../Components/ProjectsList'
 import Tile from '../Components/Tile'
 
 import '../Styles/Home.css'
@@ -40,7 +40,7 @@ function Home() {
                 <AchievementsList partialDisplay />
             </Tile>
             <br />
-            <Tile title="Projects" className="projects-tile">
+            <Tile title="Latest Projects" className="projects-tile">
                 <ProjectList partialDisplay />
             </Tile>
             <br />
