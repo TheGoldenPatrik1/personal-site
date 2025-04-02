@@ -3,6 +3,7 @@ import { useSearchParams } from 'react-router-dom';
 import ReactGA from 'react-ga4';
 
 import AboutMe from '../Components/AboutMe';
+import ProjectList from '../Components/ProjectsList';
 import AchievementsList from '../Components/AchievementsList';
 import MainCarousel from '../Components/MainCarousel';
 import Page from '../Components/Page';
@@ -37,6 +38,10 @@ function Home() {
         <br />
         <Tile title="Latest Achievements" className="achievements-tile">
             <AchievementsList partialDisplay />
+        </Tile>
+        <br />
+        <Tile title="Projects" className="projects-tile">
+            <ProjectList partialDisplay />
         </Tile>
         <br />
     </Page>

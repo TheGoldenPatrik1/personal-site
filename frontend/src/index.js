@@ -14,6 +14,7 @@ import Achievements from './Pages/Achievements';
 import Contact from './Pages/Contact';
 import ErrorPage from './Pages/ErrorPage';
 import Home from './Pages/Home';
+import Projects from './Pages/Projects';
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
   {
     path: "/achievements",
     element: <Achievements />
+  },
+  {
+    path: "/projects",
+    element: <Projects />
   }
 ]);
 

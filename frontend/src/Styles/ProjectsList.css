@@ -1,41 +1,45 @@
-.achievements-page {
+.projects-page {
     text-align: center;
 }
 
-.achievements a.card {
+.projects a.card {
     transition: 0.75s;
 }
 
-.achievements a.card:hover {
+.projects a.card:hover {
     border: 3px solid rgb(33, 37, 41);
 }
 
-.achievements .card-subtitle {
+.projects .card-subtitle {
     font-style: italic;
     margin-bottom: 6px;
 }
 
-.achievements .row {
+.projects .row {
     margin-top: calc(var(--bs-gutter-x) * .5) !important;
 }
 
 @media (max-width: 700px) {
 
-    .achievements .row {
+    .projects .row {
         margin-bottom: calc(var(--bs-gutter-x) * -.5) !important;
     }
 
-    .achievements .btn {
+    .projects .btn {
         margin-top: calc(var(--bs-gutter-x) * .5);
     }
     
 }
 
-.achievements .achievements-card {
+.projects .projects-card {
     text-decoration: none;
     height: 100%;
 }
 
-.partial-achievements .row-2 {
+.partial-projects .row-2 {
     display: none !important;
+}
+
+.project-icon {
+    vertical-align: sub;
 }
