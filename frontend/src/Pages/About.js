@@ -108,7 +108,7 @@ function About() {
                                                 >
                                                     <Col key={index} xs={6} sm={4} md={4} lg={4} xl={2} className="mb-3">
                                                         <a href={item.href} target="_blank" rel="noreferrer">
-                                                            <Image src={item.image} thumbnail />
+                                                            <Image src={item.image} thumbnail alt={item.tooltip} />
                                                         </a>
                                                     </Col>
                                                 </OverlayTrigger>

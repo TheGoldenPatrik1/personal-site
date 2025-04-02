@@ -27,12 +27,12 @@ function AboutMe() {
                         {description}
                     </Col>
                     <Col>
-                        <Image variant="bottom" src={HeadshotImage} className="align-self-end about-me-image" />
+                        <Image variant="bottom" src={HeadshotImage} className="align-self-end about-me-image" alt="Malachi Crain headshot" />
                     </Col>
                 </Row>
             </div>
             <div className="d-sm-block d-md-block d-lg-none d-xl-none">
-                <Image variant="top" src={HeadshotImage} className="about-me-image" />
+                <Image variant="top" src={HeadshotImage} className="about-me-image" alt="Malachi Crain headshot" />
                 <div className="description">
                     {description}
                 </div>

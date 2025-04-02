@@ -42,7 +42,7 @@ function Footer() {
           <Col sm={6} md={6} className="footer-col">
             {
                 icons.map((item, index) => (
-                    <a key={index} href={item.href} onClick={handleClick(item.name)} target="_blank" rel="noreferrer">
+                    <a key={index} href={item.href} onClick={handleClick(item.name)} target="_blank" rel="noreferrer" aria-label={item.name}>
                         {item.icon}
                     </a>
                 ))

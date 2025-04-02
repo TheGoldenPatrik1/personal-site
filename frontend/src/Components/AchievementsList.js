@@ -115,7 +115,7 @@ function AchievementsList({ partialDisplay = false }) {
                                         rel="noreferrer"
                                         onClick={handleClick(item.buttonHref, item.title)}
                                     >
-                                        <Card.Img variant="top" src={item.imageSource} />
+                                        <Card.Img variant="top" src={item.imageSource} alt={item.title}/>
                                         <Card.Body>
                                             <Card.Title>{item.title}</Card.Title>
                                             <Card.Subtitle>{item.subTitle}</Card.Subtitle>
@@ -142,7 +142,7 @@ function AchievementsList({ partialDisplay = false }) {
                                         rel="noreferrer"
                                         onClick={handleClick(item.buttonHref, item.title)}
                                     >
-                                        <Card.Img variant="top" src={item.imageSource} />
+                                        <Card.Img variant="top" src={item.imageSource} alt={item.title} />
                                         <Card.Body>
                                             <Card.Title>{item.title}</Card.Title>
                                             <Card.Subtitle>{item.subTitle}</Card.Subtitle>
